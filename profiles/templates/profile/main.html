@@ -2,11 +2,11 @@
 {% block title %}Follow{% endblock %}
 
 
-{% block body %}
+{% block content %}
 
 {% for profile in profiles %}
 
-    <div class="container">
+    <div class="ui segment">
         {{ profile }}
         <br>
         <a href="{% url 'profiles:profile_detail' profile.pk %}">

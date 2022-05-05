@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Follow{% endblock %}
+
+
+{% block body %}
+
+{% for profile in profiles %}
+
+    <div class="container">
+        {{ profile }}
+        <br>
+        <a href="{% url 'profiles:profile_detail' profile.pk %}">
+            <button class="btn-primary">See Profile</button>
+        </a>
+
+    </div>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

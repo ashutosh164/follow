@@ -16,7 +16,7 @@ class ProfileDetailView(DetailView):
     model = Profile
     template_name = 'profile/detail.html'
 
-    def get_object(self,**kwargs):
+    def get_object(self, **kwargs):
         pk = self.kwargs.get('pk')
         view_profile = Profile.objects.get(pk=pk)
         return view_profile

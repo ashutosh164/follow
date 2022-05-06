@@ -6,6 +6,12 @@
 <h1>No profile details available for this user</h1>
 {% endif %}
 
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
 <!--Model-->
 
 <div class="ui basic modal">

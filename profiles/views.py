@@ -12,10 +12,10 @@ def follow_unfollow_profile(request):
         obj = Profile.objects.get(pk=pk)
         if obj.user in my_profile.following.all():
             my_profile.following.remove(obj.user)
-            messages.warning(request, f'Now You are Unfollowing {obj.user}')
+            messages.warning(request, f'Hi! {request.user},Now You are Unfollowing {obj.user}')
         else:
             my_profile.following.add(obj.user)
-            messages.success(request, f'Now You are following {obj.user}')
+            messages.success(request, f'Hi {request.user}, Now You are following {obj.user}')
         # return redirect(request.method.META.get('HTTP_REFERER'))
         # return redirect('profiles:profile_detail')
         # return HttpResponseRedirect('')

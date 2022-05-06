@@ -48,13 +48,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="ui red ok inverted button" data-bs-dismiss="modal">Close</button>
-        <form action="" method="POST">
+        <form action="{% url 'profiles:follow_unfollow_view' %}" method="POST">
               {% csrf_token %}
               <input type="hidden" name="profile_pk"  value="{{profile.pk}}">
-<!--              <div class="ui green ok inverted button">-->
-<!--                  <i class="checkmark icon"></i>-->
-<!--                  Yes-->
-<!--                </div>-->
               <button type="submit" class="ui green ok inverted button">Yes</button>
           </form>
       </div>
@@ -70,7 +66,7 @@
             {{ profile }}
             <hr>
             {% if follow %}
-                <form action="" method="POST">
+                <form action="{% url 'profiles:follow_unfollow_view' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="profile_pk" id="" value="{{profile.pk}}">
                     <button type="submit" class="ui negative button">Unfollow</button>

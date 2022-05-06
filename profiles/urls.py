@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import ProfileListView, ProfileDetailView
+from .views import ProfileListView, ProfileDetailView, follow_unfollow_profile
 
 app_name = 'profiles'
 
 urlpatterns = [
     path('', ProfileListView.as_view(), name='profile_list'),
+    path('switch_follow/', follow_unfollow_profile, name='follow_unfollow_view'),
     path('<pk>/', ProfileDetailView.as_view(), name='profile_detail'),
 ]

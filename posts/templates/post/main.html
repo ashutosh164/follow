@@ -28,6 +28,7 @@
 
         <div class="eight wide column">
             {% for post in post %}
+                {{post.author}}
                 <div class="ui segment">{{post}}</div>
             {% endfor %}
         </div>

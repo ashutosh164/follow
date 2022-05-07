@@ -8,6 +8,7 @@
 
     <div class="ui segment">
         {{ profile }}
+        {{ profile.follower_count }}
         <br>
         <a href="{% url 'profiles:profile_detail' profile.pk %}">
             <button class="btn-primary">See Profile</button>

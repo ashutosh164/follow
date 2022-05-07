@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}post{% endblock %}
+
+
+{% block content %}
+
+<h1>here is all following profiles post are apper</h1>
+
+<div class="ui grid">
+    {% for post in post %}
+
+        <div class="row ">
+            <div class="ui segment">
+                {{post}}
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}

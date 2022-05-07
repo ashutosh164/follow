@@ -7,15 +7,34 @@
 <h1>here is all following profiles post are apper</h1>
 
 <div class="ui grid">
-    {% for post in post %}
 
-        <div class="row ">
+    <div class="row ">
+        <div class="four wide column">
             <div class="ui segment">
-                {{post}}
+                <h1>{{profile}}</h1>
+                <br>
+                <a href="{% url 'profiles:profile_list' %}">
+                <button class="ui primary button">People to follow</button></a>
+                <br><br>
+                Following:
+                <ul>
+                    {% for p in profile.following.all %}
+                        <li>{{p}}</li>
+                    {% endfor %}
+                </ul>
             </div>
+
         </div>
 
-    {% endfor %}
+        <div class="eight wide column">
+            {% for post in post %}
+                <div class="ui segment">{{post}}</div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
 </div>
 
 

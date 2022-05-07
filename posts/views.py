@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from profiles.models import Profile
 from .models import Post
-from django.db.models import Q
+from itertools import chain
 
 
 def posts_of_following_profile(request):
@@ -22,4 +22,30 @@ def posts_of_following_profile(request):
     # our post
     my_post = profile.profile_post()
     posts.append(my_post)
-    return render(request, 'post/main.html', {'post': posts})
+    # sort and chain queryset and unpack the posts list
+    if len(posts) > 0:
+        qs = sorted(chain(*posts), reverse=True, key=lambda i: i.created)
+
+    return render(request, 'post/main.html', {'post': qs, 'profile': profile})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

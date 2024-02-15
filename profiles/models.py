@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    objects = models.Manager()
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     following = models.ManyToManyField(User,related_name='following', blank=True)
     bio = models.TextField(default='No bio...')
